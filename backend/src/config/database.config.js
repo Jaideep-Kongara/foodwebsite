@@ -4,20 +4,24 @@ import { FoodModel } from '../models/food.model.js';
 import { sample_users } from '../data.js';
 import { sample_foods } from '../data.js';
 import bcrypt from 'bcryptjs';
+
 const PASSWORD_HASH_SALT_ROUNDS = 10;
 set('strictQuery', true);
 
 export const dbconnect = async () => {
   try {
-    connect(process.env.MONGO_URI, {
+    const mongoUri = 'your_actual_mongo_uri_here'; // Replace with your MongoDB URI
+    connect(mongoUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+
     await seedUsers();
     await seedFoods();
-    console.log('connect successfully---');
+
+    console.log('Connected to MongoDB and seeded data successfully.');
   } catch (error) {
-    console.log(error);
+    console.error(error.message);
   }
 };
 
