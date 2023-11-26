@@ -10,7 +10,7 @@ set('strictQuery', true);
 
 export const dbconnect = async () => {
   try {
-    const mongoUri = 'your_actual_mongo_uri_here'; // Replace with your MongoDB URI
+    const mongoUri = 'mongodb+srv://saikusuma228:oyHU3LVSWx7eViGE@cluster0.6qc67vg.mongodb.net/?retryWrites=true&w=majority'; // Replace with your MongoDB URI
     connect(mongoUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
